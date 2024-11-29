@@ -7,7 +7,7 @@ public class Main {
     }
 
     // печать списка
-    public static void printListOfEmployees(Employee[] employees) {
+    public static void printListOfEmployees() {
         for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i]);
         }
@@ -55,7 +55,14 @@ public class Main {
             System.out.println(employees[i].getId() + ". " + employees[i].getLastName() + " " + employees[i].getFirstName() + " " + employees[i].getMiddleName());
         }
     }
-
+    // подсчитать среднее зачение зарплат
+    public static double  middleSalary() {
+        double sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum += employees[i].getSalary();
+        }
+        return sum / employees.length;
+    }
 
 
     public static void main(String[] args) {
@@ -76,7 +83,7 @@ public class Main {
         System.out.println("Список сотрудников со всеми данными:");
         printSeparator();
 
-        printListOfEmployees(employees);
+        printListOfEmployees();
 
         printSeparator();
 
@@ -92,7 +99,8 @@ public class Main {
         System.out.println(employeeWithMaximalSalary());
         printSeparator();
         System.out.println("Среднее значение зарплат:");
-        System.out.println((totalSalaryOnMonth() / employees.length) + " руб. ");
+        // так было System.out.println((totalSalaryOnMonth() / employees.length) + " руб. ");
+        System.out.println(middleSalary() + " руб."); // так стало )))))
         printSeparator();
         System.out.println("Список сотрудников");
         printListOfEmployeesEmpty();
